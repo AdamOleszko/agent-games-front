@@ -105,8 +105,8 @@ export default class Ship {
     context.save();
     context.translate(this.position.x, this.position.y);
     context.rotate(this.rotation * Math.PI / 180);
-    context.strokeStyle = '#ffffff';
-    context.fillStyle = '#000000';
+    context.strokeStyle = 'rgb(58, 58, 58)';
+    context.fillStyle = 'rgb(58, 58, 58)';
     context.lineWidth = 2;
     context.beginPath();
     context.moveTo(0, -15);
