@@ -51,8 +51,8 @@ export default class Ship {
   }
 
   accelerate(val){
-    this.velocity.x -= Math.sin(-this.rotation*Math.PI/180) * this.speed;
-    this.velocity.y -= Math.cos(-this.rotation*Math.PI/180) * this.speed;
+    // this.velocity.x -= Math.sin(-this.rotation*Math.PI/180) * this.speed;
+    // this.velocity.y -= Math.cos(-this.rotation*Math.PI/180) * this.speed;
 
     // Thruster particles
     let posDelta = rotatePoint({x:0, y:-10}, {x:0,y:0}, (this.rotation-180) * Math.PI / 180);
@@ -73,15 +73,7 @@ export default class Ship {
 
   render(state){
     // Controls
-    if(state.keys.up){
-      this.accelerate(1);
-    }
-    if(state.keys.left){
-      this.rotate('LEFT');
-    }
-    if(state.keys.right){
-      this.rotate('RIGHT');
-    }
+    
     if(state.keys.space && Date.now() - this.lastShot > 300){
       const bullet = new Bullet({ship: this});
       this.create(bullet, 'bullets');
@@ -89,10 +81,10 @@ export default class Ship {
     }
 
     // Move
-    this.position.x += this.velocity.x;
-    this.position.y += this.velocity.y;
-    this.velocity.x *= this.inertia;
-    this.velocity.y *= this.inertia;
+    // this.position.x += this.velocity.x;
+    // this.position.y += this.velocity.y;
+    // this.velocity.x *= this.inertia;
+    // this.velocity.y *= this.inertia;
 
     // Rotation
     if (this.rotation >= 360) {
@@ -113,8 +105,8 @@ export default class Ship {
     context.save();
     context.translate(this.position.x, this.position.y);
     context.rotate(this.rotation * Math.PI / 180);
-    context.strokeStyle = 'rgb(58, 58, 58)';
-    context.fillStyle = 'rgb(58, 58, 58)';
+    context.strokeStyle = '#ffffff';
+    context.fillStyle = '#000000';
     context.lineWidth = 2;
     context.beginPath();
     context.moveTo(0, -15);
