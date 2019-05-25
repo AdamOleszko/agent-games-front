@@ -192,7 +192,7 @@ export class Reacteroids extends Component {
       });
       localStorage['topscore'] = this.state.currentScore;
     }
-    axios.post('http://localhost:3001/api/scores/',{score:this.state.currentScore,userLogin:"1"})
+    axios.post('http://localhost:3001/api/scores/',{score:this.state.currentScore,userLogin:this.props.currentAgent})
   }
 
   generateAsteroids(howMany){
