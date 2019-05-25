@@ -6,7 +6,7 @@ import ScoresMenu from './ScoresMenu/ScoresMenu'
 import { makeStyles } from '@material-ui/styles';
 import Button from '@material-ui/core/Button';
 
-export const ScoresBar = () => {
+export const ScoresBar = (props) => {
 
     const useStyles = makeStyles({
         root: {
@@ -33,7 +33,7 @@ export const ScoresBar = () => {
 
     return(
         <ScoresBarCont className={classes.root}>
-            <Button style = {styles.startButtonStyle} >Start game</Button>
+            <Button style = {styles.startButtonStyle} onClick={() => {props.setCurrentScreen('game')}}>Start game</Button>
             <ScoresMenu style = {styles.startButtonStyle}/>
         </ScoresBarCont>
     )

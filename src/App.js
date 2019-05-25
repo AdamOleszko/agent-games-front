@@ -10,6 +10,7 @@ const App = () => {
   // const redirectUrl = 'http://localhost:3000';
 
   const [accessToken, setAccessToken] = useState(null);
+  const [currentScreen, setCurrentScreen] = useState('start');
 
   useEffect(() => {
     const { client_id, account_url } = config;
@@ -36,10 +37,11 @@ const App = () => {
 
   return (
     <div>
-      <ScoresBar />
-      <p>Tutaj będzie gra</p>
-      <button onClick={() => {handleClick()}}>Download from livechat API</button>
-      <Reacteroids />
+    {currentScreen === 'start' ? 
+      <ScoresBar setCurrentScreen={setCurrentScreen}/>
+      :
+      <Reacteroids />}
+      {/* <button onClick={() => {handleClick()}}>Download from livechat API</button> */}
     </div>
   );
 };
