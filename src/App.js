@@ -40,7 +40,7 @@ const App = () => {
   return (
     <div>
       {currentScreen === 'leaderboard' ? 
-      <ScoresTab currentAgent={currentAgent} setCurrentScreen={setCurrentScreen}/> : null }
+      <ScoresTab currentAgent={currentAgent} setCurrentScreen={setCurrentScreen} accessToken={accessToken}/> : null }
       {currentScreen === 'start' ? 
         <ScoresBar setCurrentScreen={setCurrentScreen}/>
         : null }
