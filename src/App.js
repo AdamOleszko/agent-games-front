@@ -1,3 +1,4 @@
+import { ScoresBar } from './components/ScoresBar'
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { accountsSdk } from '@livechat/accounts-sdk';
@@ -32,12 +33,15 @@ const App = () => {
     console.log(test);
   }
 
+
   return (
-    <div className="App">
+    <div>
+      <ScoresBar />
+      <p>Tutaj będzie gra</p>
       <button onClick={() => {handleClick()}}>Download from livechat API</button>
       <Reacteroids />
     </div>
   );
-}
+};
 
 export default App;
