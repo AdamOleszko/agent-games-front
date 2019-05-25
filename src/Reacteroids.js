@@ -14,8 +14,8 @@ const KEY = {
 };
 
 export class Reacteroids extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       screen: {
         width: window.innerWidth,
@@ -271,6 +271,10 @@ export class Reacteroids extends Component {
           <button
             onClick={ this.startGame.bind(this) }>
             try again?
+          </button>
+          <button
+            onClick={ () => {this.props.setCurrentScreen('start')} }>
+            Back to menu
           </button>
         </div>
       )

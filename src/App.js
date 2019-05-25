@@ -10,6 +10,7 @@ const App = () => {
   // const redirectUrl = 'http://localhost:3000';
 
   const [accessToken, setAccessToken] = useState(null);
+  const [currentAgent, setCurrentAgent] = useState(null);
   const [currentScreen, setCurrentScreen] = useState('start');
 
   useEffect(() => {
@@ -18,8 +19,9 @@ const App = () => {
       client_id,
       onIdentityFetched: (error, data) => {
         if (data && data.access_token) {
-          console.warn(accessToken);
+          console.log(data);
           setAccessToken(data.access_token);
+          setCurrentAgent(data.entity_id);
         } else {
           window.location.href = `${account_url}?response_type=token&client_id=${client_id}&redirect_uri=${
             window.location.href
@@ -40,8 +42,8 @@ const App = () => {
     {currentScreen === 'start' ? 
       <ScoresBar setCurrentScreen={setCurrentScreen}/>
       :
-      <Reacteroids />}
-      {/* <button onClick={() => {handleClick()}}>Download from livechat API</button> */}
+      <Reacteroids setCurrentScreen={setCurrentScreen} currentAgent={currentAgent}/>}
+      <button onClick={() => {handleClick()}}>Download from livechat API</button>
     </div>
   );
 };
