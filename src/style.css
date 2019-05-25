@@ -3,6 +3,7 @@ body {
   margin: 0;
   font-family: 'PT Mono', serif;
   color: rgb(58, 58, 58);
+  cursor: crosshair;
 }
 canvas {
   display: block;
@@ -16,7 +17,7 @@ canvas {
   height: 100%;
 }
 .current-score {
-  left: 20px;
+  left: 30px;
 }
 .top-score {
   right: 20px;
@@ -24,7 +25,7 @@ canvas {
 .score {
   display: block;
   position: absolute;
-  top: 15px;
+  top: 28px;
   z-index: 1;
   font-size: 20px;
 }
@@ -35,7 +36,7 @@ canvas {
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 1;
-  font-size: 11px;
+  font-size: 15px;
   text-align: center;
   line-height: 1.6;
 }
