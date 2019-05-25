@@ -1,7 +1,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: 'PT Mono', serif;
+  font-family: 'PT Mono', sans-serif;
   color: rgb(58, 58, 58);
   cursor: crosshair;
   user-select: none;
@@ -31,13 +31,12 @@ canvas {
   font-size: 20px;
 }
 .controls {
-  display: block;
+  display: flex;
   position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translate(-50%, 0);
+  top: 26px;
+  right: 5%;
   z-index: 1;
-  font-size: 15px;
+  font-size: 18px;
   text-align: center;
   line-height: 1.6;
 }
@@ -57,11 +56,15 @@ button{
   font-size: 20px;
   padding: 10px 20px;
   margin: 10px;
-  font-family: 'PT Mono', serif;
+  font-family: 'PT Mono', sans-serif;
   cursor: pointer;
   box-sizing: border-box;
+  border-radius: 5px;
 }
 button:hover{
-  background-color: #3097ef;
+  background-color:#e65d56;
   color: #000000;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #ffffff;
 }
