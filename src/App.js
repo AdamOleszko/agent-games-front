@@ -4,6 +4,7 @@ import axios from 'axios';
 import { accountsSdk } from '@livechat/accounts-sdk';
 import {Reacteroids} from './Reacteroids';
 import config from './config.js';
+import ScoresTab from './components/ScoresTab/ScoresTab.jsx';
 
 const App = () => {
   // const client_id = 'b9a9ce57595f6814655643cbf9ddaa96';
@@ -34,14 +35,16 @@ const App = () => {
     console.log(test);
   }
 
-
   return (
     <div>
-    {currentScreen === 'start' ? 
-      <ScoresBar setCurrentScreen={setCurrentScreen}/>
-      :
-      <Reacteroids />}
-      {/* <button onClick={() => {handleClick()}}>Download from livechat API</button> */}
+      <ScoresTab currentAgent={currentAgent}/>
+      <div>
+      {currentScreen === 'start' ? 
+        <ScoresBar setCurrentScreen={setCurrentScreen}/>
+        :
+        <Reacteroids />}
+        {/* <button onClick={() => {handleClick()}}>Download from livechat API</button> */}
+      </div>
     </div>
   );
 };

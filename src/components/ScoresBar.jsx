@@ -38,14 +38,3 @@ export const ScoresBar = (props) => {
         </ScoresBarCont>
     )
 }
-
-function setScores() {
-    axios.get("http://localhost:3000/api/scores")
-      .then(res => {
-          console.log(res.data);
-      })
-      .catch(error => {
-          console.log(error);
-      });
-};
-export default setScores;
