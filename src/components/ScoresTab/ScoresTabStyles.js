@@ -9,10 +9,15 @@ export const YourScore = styled.div`
 `
 export const BestWeekScore = styled.div`
     width: 100%;
-    height: 40px;
+    height: 70px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+        img{
+            height:55px;
+            border-radius:50px;
+            margin-right:10px;
+        }
 `
 export const AllScore = styled.div`
     width: 100%;
@@ -23,10 +28,18 @@ export const AllScore = styled.div`
 `
 
 export const BackToMenu = styled.div`
-    width: 100px;
-    height: 40px;
+    margin: 0 auto;
+    width: 120px;
+    height: 45px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    background-color: grey;
+    background-color: #e65d56;
+    border-radius:5px;
+    color:white;
+    font-size:16px;
+        
+        :hover{
+            background: rgba(230,93,86, 0.7)
+        }
 `

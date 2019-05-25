@@ -77,7 +77,7 @@ componentDidMount() {
 
 render () {
   return (
-    <div>
+    <div> 
     {this.state.allScores.length > 0 && this.props.agents.length > 0 ? (<div>
       <BackToMenu onClick={ () => {this.props.setCurrentScreen('start')}}>Back to menu</BackToMenu>
       {this.state.allScores.map(item => <BestWeekScore>{<img src={`http://${this.props.agents.filter((ag)=> {
@@ -127,9 +127,11 @@ function ScoresTab(props) {
   const [value, setValue] = React.useState(0);
   const [agents, setAgents] = React.useState([]);
 
-  useEffect(async () => {
-    const agents = await axios.get(`${config.server_url}/agents/`, {headers: {'X-API-Version': '2', Authorization: `Bearer ${props.accessToken}`}});
-    setAgents(agents.data);
+  useEffect(() => {
+    const agents = axios.get(`${config.server_url}/agents/`, {headers: {'X-API-Version': '2', Authorization: `Bearer ${props.accessToken}`}}).then(res=>{
+
+      setAgents(res.data);
+    })
   }, [props.accessToken])
 
   function handleChange(event, newValue) {
