@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Ship from './Ship';
 import Asteroid from './Asteroid';
-import { randomNumBetweenExcluding } from './helpers'
+import { randomNumBetweenExcluding } from './helpers';
+import { ScoresBar } from './components/ScoresBar';
+import axios from 'axios'
 
 const KEY = {
   LEFT:  37,
@@ -190,6 +192,7 @@ export class Reacteroids extends Component {
       });
       localStorage['topscore'] = this.state.currentScore;
     }
+    axios.post('http://localhost:3001/api/scores/',{score:this.state.currentScore,userLogin:"1"})
   }
 
   generateAsteroids(howMany){
@@ -256,21 +259,25 @@ export class Reacteroids extends Component {
     let message;
 
     if (this.state.currentScore <= 0) {
-      message = '0 points... So sad.';
+      message = '0 points. Sad.';
     } else if (this.state.currentScore >= this.state.topScore){
       message = 'Top score with ' + this.state.currentScore + ' points. Woo!';
     } else {
-      message = this.state.currentScore + ' Points though :)'
+      message = this.state.currentScore + ' points look cool. :)'
     }
 
     if(!this.state.inGame){
       endgame = (
         <div className="endgame">
-          <p>Game over, man!</p>
+          <p>That's it!</p>
           <p>{message}</p>
           <button
             onClick={ this.startGame.bind(this) }>
-            try again?
+            try again
+          </button>
+          <button
+            onClick = { () => (this.props.setCurrentScreen('start'))}>
+            home menu
           </button>
           <button
             onClick={ () => {this.props.setCurrentScreen('start')} }>
@@ -284,10 +291,9 @@ export class Reacteroids extends Component {
       <div>
         { endgame }
         <span className="score current-score" >Score: {this.state.currentScore}</span>
-        <span className="score top-score" >Top Score: {this.state.topScore}</span>
+        {/* <span className="score top-score" >Top Score: {this.state.topScore}</span> */}
         <span className="controls" >
-          Use [A][S][W][D] or [←][↑][↓][→] to MOVE<br/>
-          Use [SPACE] to SHOOT
+          Use mouse to move <br/> Press space to pause
         </span>
         <canvas id="gameBoard" ref="canvas"
           width={this.state.screen.width * this.state.screen.ratio}
