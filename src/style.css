@@ -4,6 +4,7 @@ body {
   font-family: 'PT Mono', serif;
   color: rgb(58, 58, 58);
   cursor: crosshair;
+  user-select: none;
 }
 canvas {
   display: block;
@@ -58,6 +59,7 @@ button{
   margin: 10px;
   font-family: 'PT Mono', serif;
   cursor: pointer;
+  box-sizing: border-box;
 }
 button:hover{
   background-color: #3097ef;

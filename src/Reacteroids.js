@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Ship from './Ship';
 import Asteroid from './Asteroid';
-import { randomNumBetweenExcluding } from './helpers'
+import { randomNumBetweenExcluding } from './helpers';
+import { ScoresBar } from './components/ScoresBar';
 
 const KEY = {
   LEFT:  37,
@@ -14,8 +15,8 @@ const KEY = {
 };
 
 export class Reacteroids extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       screen: {
         width: window.innerWidth,
@@ -256,21 +257,25 @@ export class Reacteroids extends Component {
     let message;
 
     if (this.state.currentScore <= 0) {
-      message = '0 points... So sad.';
+      message = '0 points. Sad.';
     } else if (this.state.currentScore >= this.state.topScore){
       message = 'Top score with ' + this.state.currentScore + ' points. Woo!';
     } else {
-      message = this.state.currentScore + ' Points though :)'
+      message = this.state.currentScore + ' points look cool. :)'
     }
 
     if(!this.state.inGame){
       endgame = (
         <div className="endgame">
-          <p>Game over, man!</p>
+          <p>That's it!</p>
           <p>{message}</p>
           <button
             onClick={ this.startGame.bind(this) }>
-            try again?
+            try again
+          </button>
+          <button
+            onClick = { () => (this.props.setCurrentScreen('start'))}>
+            home menu
           </button>
         </div>
       )

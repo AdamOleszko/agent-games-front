@@ -40,7 +40,7 @@ const App = () => {
     {currentScreen === 'start' ? 
       <ScoresBar setCurrentScreen={setCurrentScreen}/>
       :
-      <Reacteroids />}
+      <Reacteroids setCurrentScreen={setCurrentScreen}/>}
       {/* <button onClick={() => {handleClick()}}>Download from livechat API</button> */}
     </div>
   );
