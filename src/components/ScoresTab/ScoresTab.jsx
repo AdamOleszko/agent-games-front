@@ -9,6 +9,7 @@ import axios from 'axios';
 import { YourScore } from './ScoresTabStyles';
 import { BestWeekScore } from './ScoresTabStyles';
 import { AllScore } from './ScoresTabStyles';
+import { BackToMenu } from './ScoresTabStyles';
 
 
 function TabContainer(props) {
@@ -49,6 +50,7 @@ class YourScores extends React.Component {
   render () {
       return (
         <div>
+          <BackToMenu onClick={ () => {this.props.setCurrentScreen('start')}}>Back to menu</BackToMenu>
           {this.state.yourScores.map(item => <YourScore>{item.score}</YourScore>)}
         </div>
       );
@@ -74,7 +76,8 @@ class BestWeekScores extends React.Component {
   render () {
       return (
           <div>
-            {this.state.yourScores.map(item => <BestWeekScore>{item.score}</BestWeekScore>)}
+            <BackToMenu onClick={ () => {this.props.setCurrentScreen('start')}}>Back to menu</BackToMenu>
+            {this.state.BestWeekScores.map(item => <BestWeekScore>{item.score}</BestWeekScore>)}
           </div>
       );
   }
@@ -97,14 +100,12 @@ class AllScores extends React.Component {
   render () {
       return (
         <div>
-          {this.state.yourScores.map(item => <BestWeekScore>{item.score}</BestWeekScore>)}
+          <BackToMenu onClick={ () => {this.props.setCurrentScreen('start')}}>Back to menu</BackToMenu>
+          {this.state.allScores.map(item => <BestWeekScore>{item.score}</BestWeekScore>)}
         </div>
       );
   }
 };
-
-
-
 
 function ScoresTab(props) {
 
@@ -124,9 +125,9 @@ function ScoresTab(props) {
           <Tab label="All scores" />
         </Tabs>
       </AppBar>
-      {value === 0 && <TabContainer><YourScores currentAgent={props.currentAgent}/></TabContainer>}
-      {value === 1 && <TabContainer><BestWeekScores/></TabContainer>}
-      {value === 2 && <TabContainer><AllScores/></TabContainer>}
+      {value === 0 && <TabContainer><YourScores setCurrentScreen={props.setCurrentScreen} currentAgent={props.currentAgent}/></TabContainer>}
+      {value === 1 && <TabContainer><BestWeekScores setCurrentScreen={props.setCurrentScreen}/></TabContainer>}
+      {value === 2 && <TabContainer><AllScores setCurrentScreen={props.setCurrentScreen}/></TabContainer>}
     </div>
   );
 }

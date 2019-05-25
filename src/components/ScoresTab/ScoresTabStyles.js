@@ -21,3 +21,12 @@ export const AllScore = styled.div`
     justify-content: flex-start;
     align-items: center;
 `
+
+export const BackToMenu = styled.div`
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: grey;
+`

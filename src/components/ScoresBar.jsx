@@ -34,7 +34,7 @@ export const ScoresBar = (props) => {
     return(
         <ScoresBarCont className={classes.root}>
             <Button style = {styles.startButtonStyle} onClick={() => {props.setCurrentScreen('game')}}>Start game</Button>
-            <ScoresMenu style = {styles.startButtonStyle}/>
+            <Button onClick={ () => props.setCurrentScreen('leaderboard')} style = {styles.startButtonStyle}>GAME SCORES</Button>
         </ScoresBarCont>
     )
 }

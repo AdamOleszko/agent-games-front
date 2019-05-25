@@ -39,14 +39,13 @@ const App = () => {
 
   return (
     <div>
-      <ScoresTab currentAgent={currentAgent}/>
-      <div>
+      {currentScreen === 'leaderboard' ? 
+      <ScoresTab currentAgent={currentAgent} setCurrentScreen={setCurrentScreen}/> : null }
       {currentScreen === 'start' ? 
         <ScoresBar setCurrentScreen={setCurrentScreen}/>
-        :
-        {/* <button onClick={() => {handleClick()}}>Download from livechat API</button> */}
-      </div>
-      <Reacteroids setCurrentScreen={setCurrentScreen} currentAgent={currentAgent}/>}
+        : null }
+      {currentScreen === 'game' ?  
+      <Reacteroids setCurrentScreen={setCurrentScreen} currentAgent={currentAgent}/> : null}
     </div>
   );
 };
