@@ -69,7 +69,9 @@ componentDidMount() {
     .then(res => {
         console.log(res.data)
         const allScores = res.data;
-        this.setState({allScores: allScores.sort()});
+        this.setState({allScores: allScores.sort(function(a, b) {
+          return b.score - a.score;
+      })});
     });
 };
 
@@ -98,7 +100,9 @@ class AllScores extends React.Component {
       .then(res => {
           console.log(res.data)
           const allScores = res.data;
-          this.setState({allScores: allScores.sort()});
+          this.setState({allScores: allScores.sort(function(a, b) {
+            return b.score - a.score;
+        })});
       });
   };
 
