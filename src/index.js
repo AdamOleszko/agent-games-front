@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Reacteroids } from './Reacteroids';
+import App from './App';
 import style from './style.css';
 
-render(<Reacteroids />, document.getElementById('root'));
+render(<App />, document.getElementById('root'));

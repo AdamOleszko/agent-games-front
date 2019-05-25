@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
-import './App.css';
 import axios from 'axios';
 import { accountsSdk } from '@livechat/accounts-sdk';
+import {Reacteroids} from './Reacteroids';
 import config from './config.js';
 
 const App = () => {
@@ -36,6 +35,7 @@ const App = () => {
   return (
     <div className="App">
       <button onClick={() => {handleClick()}}>Download from livechat API</button>
+      <Reacteroids />
     </div>
   );
 }
