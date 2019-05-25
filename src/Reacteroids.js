@@ -273,15 +273,11 @@ export class Reacteroids extends Component {
           <p>{message}</p>
           <button
             onClick={ this.startGame.bind(this) }>
-            try again
+            Try again
           </button>
           <button
             onClick = { () => (this.props.setCurrentScreen('start'))}>
-            home menu
-          </button>
-          <button
-            onClick={ () => {this.props.setCurrentScreen('start')} }>
-            Back to menu
+            Home menu
           </button>
         </div>
       )
@@ -292,9 +288,9 @@ export class Reacteroids extends Component {
         { endgame }
         <span className="score current-score" >Score: {this.state.currentScore}</span>
         {/* <span className="score top-score" >Top Score: {this.state.topScore}</span> */}
-        <span className="controls" >
-          Use mouse to move <br/> Press space to pause
-        </span>
+        <div className="controls" >
+          Use mouse to move
+        </div>
         <canvas id="gameBoard" ref="canvas"
           width={this.state.screen.width * this.state.screen.ratio}
           height={this.state.screen.height * this.state.screen.ratio}
