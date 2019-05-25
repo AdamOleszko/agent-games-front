@@ -3,6 +3,7 @@ import Ship from './Ship';
 import Asteroid from './Asteroid';
 import { randomNumBetweenExcluding } from './helpers';
 import { ScoresBar } from './components/ScoresBar';
+import axios from 'axios'
 
 const KEY = {
   LEFT:  37,
@@ -191,6 +192,7 @@ export class Reacteroids extends Component {
       });
       localStorage['topscore'] = this.state.currentScore;
     }
+    axios.post('http://localhost:3001/api/scores/',{score:this.state.currentScore,userLogin:"1"})
   }
 
   generateAsteroids(howMany){
